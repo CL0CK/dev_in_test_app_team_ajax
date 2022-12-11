@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 
 
 @pytest.mark.parametrize('email, password, expectation',
-                         [('qa.ajax.app.automation@gmail.com', "qa_automation_password", True),
+                         [('qa.ajax.app.automation@gmail.com', 'qa_automation_password', True),
                           ('lol@mail.lol', 'lol', False),
                           (' ', ' ', False),
                           ])
