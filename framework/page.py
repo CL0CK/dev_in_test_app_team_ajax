@@ -27,7 +27,6 @@ class Page:
             print(f"Element {element.text} is not equal to {text}")
             return False
 
-
     def is_element_on_page(self, element_xpath):
         try:
             self.driver.find_element(By.XPATH, element_xpath)
