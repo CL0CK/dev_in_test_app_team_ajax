@@ -1,3 +1,12 @@
+import subprocess
+
+
+def get_device_udid():
+    cmd = "adb devices"
+    returned_output = subprocess.check_output(cmd)
+    return returned_output.decode("utf-8").splitlines()[1].split('\t')[0]
+
+
 def android_get_desired_capabilities():
     return {
         'autoGrantPermissions': True,
@@ -5,11 +14,10 @@ def android_get_desired_capabilities():
         'newCommandTimeout': 500,
         'noSign': True,
         'platformName': 'Android',
-        'platformVersion': '10',
         'resetKeyboard': True,
         'systemPort': 8301,
         'takesScreenshot': True,
-        'udid': '11bd127d',
+        'udid': get_device_udid(),
         'appPackage': 'com.ajaxsystems',
         'appActivity': 'com.ajaxsystems.ui.activity.LauncherActivity'
 }
