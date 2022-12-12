@@ -1,7 +1,6 @@
 from framework.sidebar_consts import SideBarConsts
-from framework.login_page import LoginConsts
 import logging
-
+import time
 logger = logging.getLogger(__name__)
 
 
@@ -21,4 +20,9 @@ def test_sidebar(sidebar_fixture, user_login_fixture):
     assert sidebar_fixture.verify_element_and_text(SideBarConsts.HELP_LABEL, "Help")
     logger.info("Step 5 - 'Report a problem' button has text 'Report a problem'")
     assert sidebar_fixture.verify_element_and_text(SideBarConsts.REPORT_A_PROBLEM_LABEL, "Report a problem")
+    logger.info("Step 6 - SlideBar was closed")
+    window_size = sidebar_fixture.driver.get_window_size()
+    sidebar_fixture.tap_by_coordinates(window_size["width"]-10, window_size["height"]/2)
+    time.sleep(1)
+    assert user_login_fixture.is_element_on_page(SideBarConsts.SIDEBAR_BUTTON)
     # endregion
