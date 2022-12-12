@@ -14,13 +14,13 @@ def test_user_login(email, password, expectation, user_login_fixture):
     logging.info("Set implicitly wait for 5 seconds")
     user_login_fixture.implicitly_wait(5)
     logger.info("Precondition - Log In button is displayed")
-    assert user_login_fixture.is_element_on_page(LoginConsts.FIRST_LOGIN), \
+    assert user_login_fixture.is_element_on_page(LoginConsts.FIRST_LOGIN_BUTTON), \
         f"Can't verify that Log In button is on page"
     # region - test steps
     logger.info("Step 1 - Log In page is displayed")
     user_login_fixture.click_first_login()
     logger.info("Step 2 - Second Log In button is displayed ")
-    assert user_login_fixture.is_element_on_page(LoginConsts.EMAIL)
+    assert user_login_fixture.is_element_on_page(LoginConsts.EMAIL_INPUT)
     logger.info("Step 3 - Email value was set")
     user_login_fixture.set_email(email)
     logger.info("Step 4 - Email value was successfully verified")
@@ -35,5 +35,5 @@ def test_user_login(email, password, expectation, user_login_fixture):
         logger.info("Step 8 - Main page is displayed")
     else:
         logger.info("Step 8 - Main page isn't displayed")
-    assert user_login_fixture.is_element_on_page(LoginConsts.SIDEBAR) == expectation
+    assert user_login_fixture.is_element_on_page(LoginConsts.SIDEBAR_BUTTON) == expectation
     # endregion

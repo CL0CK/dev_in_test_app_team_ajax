@@ -9,6 +9,7 @@ def get_device_udid():
 
 def android_get_desired_capabilities():
     return {
+        'autoLaunch': False,
         'autoGrantPermissions': True,
         'automationName': 'uiautomator2',
         'newCommandTimeout': 500,

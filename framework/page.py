@@ -1,3 +1,4 @@
+from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.common.by import By
 from tests.conftest import driver
 
@@ -42,3 +43,6 @@ class Page:
 
     def implicitly_wait(self, value):
         self.driver.implicitly_wait(value)
+
+    def tap_on_page_by_xy(self, x, y):
+        TouchAction(driver).tap(None, 104, 255, 1).perform()
