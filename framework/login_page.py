@@ -9,25 +9,25 @@ class LoginPage(Page):
         super().__init__(driver)
 
     def click_first_login(self):
-        element = self.find_element(LoginConsts.FIRST_LOGIN)
+        element = self.find_element(LoginConsts.FIRST_LOGIN_BUTTON)
         self.click_element(element)
 
     def verify_email_value(self, value):
-        return self.verify_element_and_text(LoginConsts.EMAIL, value)
+        return self.verify_element_and_text(LoginConsts.EMAIL_INPUT, value)
 
     def verify_password_value(self, value):
-        return self.verify_element_len_and_text_len(LoginConsts.PASSWORD, value)
+        return self.verify_element_len_and_text_len(LoginConsts.PASSWORD_INPUT, value)
 
     def click_second_login(self):
-        element = self.find_element(LoginConsts.SECOND_LOGIN)
+        element = self.find_element(LoginConsts.SECOND_LOGIN_BUTTON)
         self.click_element(element)
 
     def set_email(self, value):
-        element = self.find_element(LoginConsts.EMAIL)
+        element = self.find_element(LoginConsts.EMAIL_INPUT)
         self.send_keys(element, value)
 
     def set_password(self, value):
-        element = self.find_element(LoginConsts.PASSWORD)
+        element = self.find_element(LoginConsts.PASSWORD_INPUT)
         self.send_keys(element, value)
 
     def login_to_application(self, email, password):

@@ -9,7 +9,7 @@ def test_sidebar(sidebar_fixture, user_login_fixture):
     user_login_fixture.login_to_application('qa.ajax.app.automation@gmail.com', 'qa_automation_password')
     sidebar_fixture.implicitly_wait(5)
     logger.info("Precondition - SideBar button is displayed")
-    assert user_login_fixture.is_element_on_page(LoginConsts.SIDEBAR)
+    assert user_login_fixture.is_element_on_page(SideBarConsts.SIDEBAR_BUTTON)
     # region - test steps
     logger.info("Step 1 - SideBar is opened")
     sidebar_fixture.click_on_sidebar()

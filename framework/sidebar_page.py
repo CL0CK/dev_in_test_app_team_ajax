@@ -9,5 +9,5 @@ class SliderPage(Page):
         super().__init__(driver)
 
     def click_on_sidebar(self):
-        element = self.find_element(SideBarConsts.SIDEBAR)
+        element = self.find_element(SideBarConsts.SIDEBAR_BUTTON)
         self.click_element(element)
